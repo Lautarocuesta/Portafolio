@@ -6,9 +6,12 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Inicialización de la aplicación Flask
-app = Flask(__name__)
+app = Flask(__name__, template_folder='app/templates')
+
 
 # Configuración de la base de datos Clever Cloud
 app.config['SECRET_KEY'] = 'your_secret_key'  # Reemplázalo con una clave secreta segura
@@ -24,11 +27,17 @@ login_manager.login_message_category = 'info'
 migrate = Migrate(app, db)
 
 # Modelo para el usuario
-class User(UserMixin, db.Model):
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(60), nullable=False)
+    username = db.Column(db.String(150), unique=True, nullable=False)
+    email = db.Column(db.String(150), unique=True, nullable=False)
+    password_hash = db.Column(db.String(150), nullable=False)
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
@@ -51,15 +60,13 @@ class RegistrationForm(FlaskForm):
         if user:
             raise ValidationError('That email is already registered.')
 
-# Formulario de inicio de sesión
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
 
-# Ruta de inicio
 @app.route('/')
-def base():
+def index():
     return render_template('base.html')
 
 # Ruta de registro
