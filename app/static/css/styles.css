@@ -1,7 +1,49 @@
+/* Establecer fuente de Google */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos para móviles */
+@media (max-width: 576px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 577px) and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* Estilos para escritorios */
+@media (min-width: 769px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Estilo de botón animado */
+.animated-button {
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Añadido background-color para botones */
+}
+
+.animated-button:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo de botón general */
 .btn {
     transition: background-color 0.3s ease;
+    padding: 10px 20px; /* Añadir un poco de padding para mejorar el diseño */
+    border: none; /* Quitar borde por defecto */
+    border-radius: 5px; /* Bordes redondeados para mejor apariencia */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
 }

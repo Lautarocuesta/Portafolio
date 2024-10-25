@@ -6,12 +6,10 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # Inicialización de la aplicación Flask
 app = Flask(__name__, template_folder='app/templates')
-
 
 # Configuración de la base de datos Clever Cloud
 app.config['SECRET_KEY'] = 'your_secret_key'  # Reemplázalo con una clave secreta segura
@@ -27,7 +25,7 @@ login_manager.login_message_category = 'info'
 migrate = Migrate(app, db)
 
 # Modelo para el usuario
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
@@ -60,11 +58,13 @@ class RegistrationForm(FlaskForm):
         if user:
             raise ValidationError('That email is already registered.')
 
+# Formulario de login
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
 
+# Ruta de inicio
 @app.route('/')
 def index():
     return render_template('base.html')
@@ -75,7 +75,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        user = User(username=form.username.data, email=form.email.data, password_hash=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
@@ -87,19 +87,20 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user, remember=True)
-            return redirect(url_for('home'))
+        user = User.query.filter_by(email=form.email.data).first()  # Usando el campo email
+        if user and user.check_password(form.password.data):
+            login_user(user)
+            flash('Login exitoso', 'success')
+            return redirect(url_for('index'))
         else:
-            flash('Login Unsuccessful. Please check email and password', 'danger')
+            flash('Login fallido. Verifica tus credenciales.', 'danger')
     return render_template('login.html', form=form)
 
 # Ruta para cerrar sesión
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    return redirect(url_for('index'))
 
 # Ruta para editar el portafolio (solo accesible para usuarios logueados)
 @app.route('/edit_portfolio')
