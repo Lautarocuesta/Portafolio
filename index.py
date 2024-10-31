@@ -15,7 +15,6 @@ app = Flask(__name__, template_folder='app/templates')
 app.config['SECRET_KEY'] = 'your_secret_key'  # Reemplázalo con una clave secreta segura
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://urzsjtckpsfqpdnl:e9AWhayNOrMr0FbgGHtf@bbixqs0e1wg17v5zentb-mysql.services.clever-cloud.com:3306/bbixqs0e1wg17v5zentb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 # Inicializar extensiones
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
