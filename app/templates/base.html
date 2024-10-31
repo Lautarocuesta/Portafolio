@@ -85,7 +85,7 @@
         {% block content %}
         <h1>Bienvenido a mi Portafolio</h1>
 
-        <img src="/static/img/m.png" alt="Mi Portafolio" class="img-fluid rounded-circle mb-2 portfolio-img" draggable="true" ondragstart="drag(event)" id="portfolioImg">
+        <img src="{{ url_for('static', filename='img/m.png') }}" alt="Mi Portafolio" class="img-fluid rounded-circle mb-2 portfolio-img" draggable="true" ondragstart="drag(event)" id="portfolioImg">
 
         <div class="section">
             <h2>Mi CV</h2>
