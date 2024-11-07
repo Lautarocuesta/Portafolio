@@ -4,141 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="/static/css/styles.css"> <!-- Cambiado aquí -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
         }
-
         .container {
             max-width: 1200px;
             margin: auto;
             padding: 20px;
         }
-
-        .portfolio-img {
-            width: 100%;
-            max-width: 300px;
-            margin: 20px 0;
-            cursor: grab;
+        .profile-photo img {
+            width: 150px;
+            height: 150px;
         }
-
-        .portfolio-img:active {
-            cursor: grabbing;
+        .btn-custom {
+            border-radius: 20px;
         }
-
-        .tech-section {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .tech-category {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .tech-category h3 {
-            margin-bottom: 15px;
+        h1, h2 {
             color: #C30000;
         }
-
-        .tech-category img {
-            width: 50px;
-            height: 50px;
+        .tech-section {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .tech-category h3 {
+            color: #C30000;
+            margin-bottom: 15px;
+        }
+        .tech-card {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 8px;
             margin: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+        .tech-card img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 10px;
+        }
+        .tech-card p {
+            color: #C30000;
+        }
+        .section {
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/index">Inicio</a> <!-- Cambiado aquí -->
+        <a class="navbar-brand" href="/index">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/static/a/cv.pdf" download>Descargar CV en PDF</a> <!-- Cambiado aquí -->
+                    <a class="nav-link" href="/static/a/cv.pdf" download>Descargar CV en PDF</a>
                 </li>
                 {% if current_user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/edit_profile">Editar Perfil</a> <!-- Cambiado aquí -->
+                    <a class="nav-link" href="/edit_profile">Editar Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">Cerrar Sesión</a> <!-- Cambiado aquí -->
+                    <a class="nav-link" href="/logout">Cerrar Sesión</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Iniciar Sesión</a> <!-- Cambiado aquí -->
+                    <a class="nav-link" href="/login">Iniciar Sesión</a>
                 </li>
                 {% endif %}
             </ul>
         </div>
     </nav>
 
-    <div class="container">
-        {% block content %}
+    <div class="container text-center mt-5">
         <h1>Bienvenido a mi Portafolio</h1>
 
-        <img src="{{ url_for('static', filename='img/m.png') }}" alt="Mi Portafolio" class="img-fluid rounded-circle mb-2 portfolio-img" draggable="true" ondragstart="drag(event)" id="portfolioImg">
+        <!-- Imagen Principal -->
+        <div class="profile-photo mb-4">
+            <img src="{{ url_for('static', filename='img/logolog.png') }}" alt="Foto de Perfil" class="img-fluid rounded-circle shadow-lg">
+        </div>
 
+        <p class="lead">Desarrollador Full Stack con experiencia en tecnologías modernas</p>
+
+        <!-- Sección Acerca de mí -->
         <div class="section">
+            <h2>Acerca de mí</h2>
+            <p>Soy un desarrollador apasionado por la tecnología y la innovación. Me gusta resolver problemas y crear aplicaciones que impacten positivamente en la vida de las personas.</p>
+        </div>
+
+        <!-- Sección Tecnologías -->
+        <div class="tech-section">
+            <h2>Tecnologías</h2>
+            <div class="row">
+                <div class="col-md-4 tech-category">
+                    <h3>Backend</h3>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/flask.png') }}" alt="Flask">
+                        <p>Flask</p>
+                    </div>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/node.png') }}" alt="Node.js">
+                        <p>Node.js</p>
+                    </div>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/pyt.png') }}" alt="Python">
+                        <p>Python</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 tech-category">
+                    <h3>Base de Datos</h3>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/mysql.png') }}" alt="MySQL">
+                        <p>MySQL</p>
+                    </div>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/mongo db.png') }}" alt="MongoDB">
+                        <p>MongoDB</p>
+                    </div>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/postgre.png') }}" alt="PostgreSQL">
+                        <p>PostgreSQL</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 tech-category">
+                    <h3>Frontend</h3>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/html.png') }}" alt="HTML">
+                        <p>HTML</p>
+                    </div>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/css.png') }}" alt="CSS">
+                        <p>CSS</p>
+                    </div>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/bootstrap.png') }}" alt="Bootstrap">
+                        <p>Bootstrap</p>
+                    </div>
+                    <div class="tech-card">
+                        <img src="{{ url_for('static', filename='img/react.png') }}" alt="React">
+                        <p>React</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección CV y GitHub -->
+        <div class="section mb-5">
             <h2>Mi CV</h2>
             <p>Puedes ver y descargar mi currículum desde el siguiente enlace:</p>
-            <a class="btn btn-primary" href="https://www.canva.com/design/DAGUOxBlHok/0qN3sEflJaNmu7QbGkbezQ/edit" target="_blank">Ver CV</a>
+            <a class="btn btn-primary btn-custom" href="https://www.canva.com/design/DAGUOxBlHok/0qN3sEflJaNmu7QbGkbezQ/edit" target="_blank">Ver CV</a>
         </div>
-
-        <div class="section">
+        <div class="section mb-5">
             <h2>Mi GitHub</h2>
             <p>Visita mi perfil de GitHub para ver mis proyectos:</p>
-            <a class="btn btn-dark" href="https://github.com/Lautarocuesta" target="_blank">Mi GitHub</a>
+            <a class="btn btn-dark btn-custom" href="https://github.com/Lautarocuesta" target="_blank">Mi GitHub</a>
         </div>
-
-        <div class="tech-section">
-            <div class="tech-category">
-                <h3>Backend</h3>
-                <img src="/static/img/flask.png" alt="Flask" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/express.png" alt="Express" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/node.png" alt="Node.js" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/mongo db.png" alt="MongoDB" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/mysql.png" alt="MySQL" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/pyt.png" alt="Python" class="img-fluid rounded-circle mb-2">
-            </div>
-            <div class="tech-category">
-                <h3>Frontend</h3>
-                <img src="/static/img/bootstrap.png" alt="Bootstrap" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/css.png" alt="CSS" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/html.png" alt="HTML" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/js.png" alt="JavaScript" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/react.png" alt="React" class="img-fluid rounded-circle mb-2">
-            </div>
-            <div class="tech-category">
-                <h3>Otros</h3>
-                <img src="/static/img/canva.png" alt="Canva" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/cleverclo.png" alt="CleverCloud" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/git.png" alt="Git" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/github.png" alt="GitHub" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/jinja.png" alt="Jinja" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/vercel.png" alt="Vercel" class="img-fluid rounded-circle mb-2">
-                <img src="/static/img/wja.png" alt="Web Application" class="img-fluid rounded-circle mb-2">
-            </div>
-        </div>
-        {% endblock %}
     </div>
-
-    <script>
-        function drag(event) {
-            event.dataTransfer.setData("text", event.target.id);
-        }
-    </script>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ app = Flask(__name__, template_folder='app/templates')
 app.config['SECRET_KEY'] = 'your_secret_key'  # Reemplázalo con una clave secreta segura
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://urzsjtckpsfqpdnl:e9AWhayNOrMr0FbgGHtf@bbixqs0e1wg17v5zentb-mysql.services.clever-cloud.com:3306/bbixqs0e1wg17v5zentb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 # Inicializar extensiones
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -86,7 +87,7 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()  # Usando el campo email
+        user = User.query.filter_by(email=form.email.data).first()
         if user and user.check_password(form.password.data):
             login_user(user)
             flash('Login exitoso', 'success')
@@ -110,7 +111,6 @@ def edit_portfolio():
 # Crea las tablas de la base de datos
 @app.before_request
 def create_tables():
-    # Crea las tablas necesarias en la base de datos si no existen
     db.create_all()
 
 # Gestión de usuarios logueados
@@ -121,5 +121,5 @@ def load_user(user_id):
 # Iniciar la aplicación
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()  # Crea las tablas necesarias si no existen
+        db.create_all()
     app.run(debug=True)
