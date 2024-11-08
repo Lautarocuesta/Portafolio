@@ -1,26 +1,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
-      <h2 class="text-center mb-4">Login</h2>
-      <form method="POST" action="{{ url_for('login') }}">
-        {{ form.hidden_tag() }}
-        
-        <div class="mb-3">
-          {{ form.email.label(class="form-label") }}
-          {{ form.email(class="form-control", placeholder="Enter your email") }}
+        <div class="text-center mb-4">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="width: 50px;">
         </div>
-        
-        <div class="mb-3">
-          {{ form.password.label(class="form-label") }}
-          {{ form.password(class="form-control", placeholder="Enter your password") }}
-        </div>
-        
-        <div class="d-grid">
-          {{ form.submit(class="btn btn-primary btn-block") }}
-        </div>
-      </form>
+        <h2 class="text-center mb-4">Inicio De Sesión</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control", placeholder="Correo electrónico") }}
+            </div>
+
+            <div class="mb-3 position-relative">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control", placeholder="Contraseña") }}
+                <span class="position-absolute" style="top: 50%; right: 10px; cursor: pointer;">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
+
+            <div class="form-check mb-3">
+                {{ form.remember(class="form-check-input") }}
+                {{ form.remember.label(class="form-check-label") }}
+            </div>
+
+            <div class="text-end mb-3">
+                <a href="{{ url_for('forgot_password') }}" class="text-decoration-none">He olvidado la contraseña</a>
+            </div>
+
+            <div class="d-grid">
+                {{ form.submit(class="btn btn-danger btn-block") }}
+            </div>
+        </form>
     </div>
-  </div>
+</div>
+
+<!-- Incluye FontAwesome para el icono del ojo si quieres funcionalidad de mostrar/ocultar contraseña -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+    document.querySelector('.fa-eye').addEventListener('click', function() {
+        let passwordField = document.querySelector('input[type="password"]');
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            this.classList.toggle('fa-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            this.classList.toggle('fa-eye-slash');
+        }
+    });
+</script>
 {% endblock %}

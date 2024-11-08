@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField,BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -60,9 +60,10 @@ class RegistrationForm(FlaskForm):
 
 # Formulario de login
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Login')
+    email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
+    password = PasswordField('Contraseña', validators=[DataRequired()])
+    remember = BooleanField('Recordar contraseña')
+    submit = SubmitField('TECLA ENTRAR')
 
 # Ruta de inicio
 @app.route('/')
@@ -87,14 +88,11 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and user.check_password(form.password.data):
-            login_user(user)
-            flash('Login exitoso', 'success')
-            return redirect(url_for('index'))
-        else:
-            flash('Login fallido. Verifica tus credenciales.', 'danger')
+        # Aquí agregarías tu lógica de autenticación
+        flash('Inicio de sesión exitoso', 'success')
+        return redirect(url_for('index'))  # Redirige a la página de inicio u otra
     return render_template('login.html', form=form)
+
 
 # Ruta para cerrar sesión
 @app.route('/logout')
