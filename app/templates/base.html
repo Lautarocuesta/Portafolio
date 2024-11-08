@@ -6,54 +6,63 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        /* Efecto de animación de entrada */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #121212;
             color: #ffffff;
+            animation: fadeIn 1.5s ease-in-out;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: auto;
             padding: 20px;
         }
         .profile-photo img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            transition: transform 0.3s;
         }
-        .btn-custom {
-            border-radius: 20px;
+        .profile-photo img:hover {
+            transform: scale(1.1);
         }
         h1, h2 {
             color: #C30000;
+            text-transform: uppercase;
         }
-        .tech-section {
+        .tech-section, .section {
             background-color: #1e1e1e;
-            padding: 30px;
+            padding: 20px;
             border-radius: 8px;
             margin-top: 20px;
-        }
-        .tech-category h3 {
-            color: #C30000;
-            margin-bottom: 15px;
-        }
-        .tech-card {
-            background-color: #333;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px;
-            display: inline-block;
             text-align: center;
         }
-        .tech-card img {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 10px;
-        }
-        .tech-card p {
-            color: #C30000;
+        .btn-custom {
+            border-radius: 20px;
+            margin-top: 10px;
         }
         .section {
             margin-top: 40px;
+        }
+        /* Estilo para secciones de imágenes */
+        .images-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .images-row img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .images-row img:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -89,76 +98,38 @@
 
         <!-- Imagen Principal -->
         <div class="profile-photo mb-4">
-            <img src="{{ url_for('static', filename='img/logolog.png') }}" alt="Foto de Perfil" class="img-fluid rounded-circle shadow-lg">
+            <img src="{{ url_for('static', filename='img/logolog.png') }}" alt="Foto de Perfil" class="img-fluid shadow-lg">
         </div>
 
         <p class="lead">Desarrollador Full Stack con experiencia en tecnologías modernas</p>
 
-        <!-- Sección Acerca de mí -->
+        <!-- Sección de Imágenes de Front y Back-end -->
+        <div class="images-row">
+            <img src="{{ url_for('static', filename='img/frontend.png') }}" alt="Front-end">
+            <img src="{{ url_for('static', filename='img/backend.png') }}" alt="Back-end">
+        </div>
+
+        <!-- Secciones de Información -->
         <div class="section">
             <h2>Acerca de mí</h2>
-            <p>Soy un desarrollador apasionado por la tecnología y la innovación. Me gusta resolver problemas y crear aplicaciones que impacten positivamente en la vida de las personas.</p>
+        </div>
+        <div class="section">
+            <h2>Experiencia laboral</h2>
+        </div>
+        <div class="section">
+            <h2>Educación</h2>
+        </div>
+        <div class="section">
+            <h2>Hard & Soft Skills</h2>
         </div>
 
         <!-- Sección Tecnologías -->
         <div class="tech-section">
             <h2>Tecnologías</h2>
-            <div class="row">
-                <div class="col-md-4 tech-category">
-                    <h3>Backend</h3>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/flask.png') }}" alt="Flask">
-                        <p>Flask</p>
-                    </div>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/node.png') }}" alt="Node.js">
-                        <p>Node.js</p>
-                    </div>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/pyt.png') }}" alt="Python">
-                        <p>Python</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 tech-category">
-                    <h3>Base de Datos</h3>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/mysql.png') }}" alt="MySQL">
-                        <p>MySQL</p>
-                    </div>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/mongo db.png') }}" alt="MongoDB">
-                        <p>MongoDB</p>
-                    </div>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/postgre.png') }}" alt="PostgreSQL">
-                        <p>PostgreSQL</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 tech-category">
-                    <h3>Frontend</h3>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/html.png') }}" alt="HTML">
-                        <p>HTML</p>
-                    </div>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/css.png') }}" alt="CSS">
-                        <p>CSS</p>
-                    </div>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/bootstrap.png') }}" alt="Bootstrap">
-                        <p>Bootstrap</p>
-                    </div>
-                    <div class="tech-card">
-                        <img src="{{ url_for('static', filename='img/react.png') }}" alt="React">
-                        <p>React</p>
-                    </div>
-                </div>
-            </div>
+            <img src="{{ url_for('static', filename='img/t.png') }}" alt="Tecnologías" class="img-fluid">
         </div>
 
-        <!-- Sección CV y GitHub -->
+        <!-- Enlaces CV y GitHub -->
         <div class="section mb-5">
             <h2>Mi CV</h2>
             <p>Puedes ver y descargar mi currículum desde el siguiente enlace:</p>
