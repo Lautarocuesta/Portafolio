@@ -106,6 +106,32 @@ def logout():
 def edit_portfolio():
     return render_template('edit_portfolio.html')
 
+@app.route('/skills')
+@login_required
+def skills():
+    skills = {
+        'CSS': 90,
+        'HTML': 90,
+        'JavaScript': 75,
+        'React': 70,
+        'Python': 85,
+        'NPM': 70,
+        'Node.js': 70,
+        'MySQL': 50,
+        'MongoDB': 50,
+        'Mongoose': 45,
+        'Express': 50,
+        'Bash': 90,
+        'Nodemon': 50,
+        'Git': 80,
+        'GitHub': 90,
+        'Flask': 80,
+        'Vercel': 60,
+        'Visual Studio Code': 100,
+        'Postman': 75
+    }
+    return render_template('skills.html', skills=skills)
+
 # Crea las tablas de la base de datos
 @app.before_request
 def create_tables():
