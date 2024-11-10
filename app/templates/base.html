@@ -57,6 +57,15 @@
         .images-row img:hover {
             transform: scale(1.1);
         }
+        /* Estilos para iconos de tecnologías */
+        .tech-icons img {
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+        }
+        .tech-icons img:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -98,29 +107,57 @@
 
         <!-- Sección de Imágenes de Front y Back-end -->
         <div class="images-row">
-            <img src="{{ url_for('static', filename='img/frontend.png') }}" alt="Front-end">
-            <img src="{{ url_for('static', filename='img/backend.png') }}" alt="Back-end">
-        </div>
-
-        <!-- Secciones de Información -->
-        <div class="section">
-            <h2>Acerca de mí</h2>
-        </div>
-        <div class="section">
-            <h2>Experiencia laboral</h2>
-        </div>
-        <div class="section">
-            <h2>Educación</h2>
-        </div>
-        <div class="section">
-            <h2>Hard & Soft Skills</h2>
+            <!-- Front-end icons -->
+            <div class="tech-icons">
+                <h2>Front-end</h2>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" alt="React">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python">
+            </div>
+            
+            <!-- Back-end icons -->
+            <div class="tech-icons">
+                <h2>Back-end</h2>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" alt="NPM">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original-wordmark.svg" alt="Mongoose">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodemon/nodemon-original.svg" />
+          
+            </div>
         </div>
 
         <!-- Sección Tecnologías -->
         <div class="tech-section">
             <h2>Tecnologías</h2>
-            <img src="{{ url_for('static', filename='img/t.png') }}" alt="Tecnologías" class="img-fluid">
+            <div class="tech-icons">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="GitHub">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" alt="Flask">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original-wordmark.svg" alt="Vercel">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/p5js/p5js-original.svg" />
+          
+            </div>
         </div>
+        <div class="section">
+            <h2>Tecnologías que me gustaría aprender</h2>
+            <div class="tech-icons">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unrealengine/unrealengine-original-wordmark.svg" alt="Unreal Engine">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original-wordmark.svg" alt="Unity">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/solidity/solidity-original.svg" alt="Solidity">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original-wordmark.svg" alt="Ruby">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/polygon/polygon-original-wordmark.svg" alt="Polygon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="AngularJS">
+            </div>
+        </div>
+    </div>
 
         <!-- Enlaces CV y GitHub -->
         <div class="section mb-5">
