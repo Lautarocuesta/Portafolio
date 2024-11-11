@@ -57,14 +57,15 @@
         }
 
         .tech-icons img {
-            width: 60px;  /* Tamaño ajustable de las imágenes */
-            height: 60px;  /* Tamaño ajustable de las imágenes */
+            width: 60px;
+            height: 60px;
             margin: 10px;
-            transition: transform 0.3s ease;  /* Efecto de transición al pasar el ratón */
+            transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .tech-icons img:hover {
-            transform: scale(1.1);  /* Agranda la imagen al pasar el ratón */
+            transform: scale(1.1);
         }
 
         .tech-section, .section {
@@ -75,6 +76,13 @@
         .tech-section h2, .section h2 {
             text-align: center;
             margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            display: none;
         }
     </style>
 </head>
@@ -110,7 +118,7 @@
 
         <!-- Imagen Principal -->
         <div class="profile-photo mb-4">
-            <img src="{{ url_for('static', filename='img/logolog.png') }}" alt="Foto de Perfil" class="img-fluid shadow-lg">
+            <img src="{{ url_for('static', filename='img/image.png') }}" alt="Foto de Perfil" class="img-fluid shadow-lg">
         </div>
         
         <p class="lead">Desarrollador Full Stack con experiencia en tecnologías modernas</p>
@@ -120,30 +128,28 @@
             <!-- Front-end icons -->
             <div class="tech-icons">
                 <h2>Front-end</h2>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" alt="React">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3" onclick="showChart('front-end', 'CSS3')">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5" onclick="showChart('front-end', 'HTML5')">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" onclick="showChart('front-end', 'JavaScript')">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" alt="React" onclick="showChart('front-end', 'React')">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python" onclick="showChart('front-end', 'Python')">
             </div>
             
             <!-- Back-end icons -->
             <div class="tech-icons">
                 <h2>Back-end</h2>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" alt="NPM">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original-wordmark.svg" alt="Mongoose">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodemon/nodemon-original.svg" alt="Nodemon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" alt="NPM" onclick="showChart('back-end', 'NPM')">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" onclick="showChart('back-end', 'Node.js')">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" onclick="showChart('back-end', 'MySQL')">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB" onclick="showChart('back-end', 'MongoDB')">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original-wordmark.svg" alt="Mongoose" onclick="showChart('back-end', 'Mongoose')">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express" onclick="showChart('back-end', 'Express')">
             </div>
         </div>
 
         <!-- Sección Tecnologías -->
         <div class="tech-section">
-            <h2>Tecnologías</h2>
+            <h2>Tecnologías que manejo</h2>
             <div class="tech-icons">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="GitHub">
@@ -154,60 +160,104 @@
             </div>
         </div>
 
-        <!-- Sección Tecnologías que me gustaría aprender -->
-        <div class="section">
-            <h2>Tecnologías que me gustaría aprender</h2>
-            <div class="tech-icons">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unrealengine/unrealengine-original-wordmark.svg" alt="Unreal Engine">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original-wordmark.svg" alt="Unity">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/solidity/solidity-original.svg" alt="Solidity">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original-wordmark.svg" alt="Ruby">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/polygon/polygon-original-wordmark.svg" alt="Polygon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="AngularJS">
-            </div>
-        </div>
-        <!-- Gráfico de Torta -->
-        <div class="section mt-5">
-            <h2>Gráfico de Torta</h2>
-            <canvas id="myPieChart" width="400" height="400"></canvas>
-        </div>
-        <!-- Enlaces CV y GitHub -->
-        <div class="section mb-5">
-            <h2>Mi CV</h2>
-            <p>Puedes ver y descargar mi currículum desde el siguiente enlace:</p>
-            <a class="btn btn-primary btn-custom" href="https://www.canva.com/design/DAGUOxBlHok/0qN3sEflJaNmu7QbGkbezQ/edit" target="_blank">Ver CV</a>
-        </div>
-        <div class="section mb-5">
-            <h2>Mi GitHub</h2>
-            <p>Visita mi perfil de GitHub para ver mis proyectos:</p>
-            <a class="btn btn-dark btn-custom" href="https://github.com/Lautacars07" target="_blank">Ver GitHub</a>
+        <!-- Canvas para el gráfico de torta -->
+        <div class="chart-container" id="chart-container">
+            <canvas id="myChart" width="400" height="400"></canvas>
         </div>
     </div>
+    <div class="section">
+        <h2>Tecnologías que me gustaría aprender</h2>
+        <div class="tech-icons">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unrealengine/unrealengine-original-wordmark.svg" alt="Unreal Engine">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original-wordmark.svg" alt="Unity">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/solidity/solidity-original.svg" alt="Solidity">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original-wordmark.svg" alt="Ruby">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/polygon/polygon-original-wordmark.svg" alt="Polygon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="AngularJS">
+        </div>
+    </div>
+     <!-- Enlaces CV y GitHub -->
+     <div class="section mb-5">
+        <h2>Mi CV</h2>
+        <p>Puedes ver y descargar mi currículum desde el siguiente enlace:</p>
+        <a class="btn btn-primary btn-custom" href="https://www.canva.com/design/DAGUOxBlHok/0qN3sEflJaNmu7QbGkbezQ/edit" target="_blank">Ver CV</a>
+    </div>
+    <div class="section mb-5">
+        <h2>Mi GitHub</h2>
+        <p>Visita mi perfil de GitHub para ver mis proyectos:</p>
+        <a class="btn btn-dark btn-custom" href="https://github.com/Lautacars07" target="_blank">Ver GitHub</a>
+    </div>
+</div>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
     <script>
-        // Datos del gráfico
-        var ctx = document.getElementById('myPieChart').getContext('2d');
-        var myPieChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow'],
-                datasets: [{
-                    label: 'Mi primer gráfico de torta',
-                    data: [300, 50, 100],
-                    backgroundColor: ['#FF0000', '#0000FF', '#FFFF00'],
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                responsive: true
+        let chart;
+
+        function showChart(category, technology) {
+            let data = [];
+            let labels = [];
+            let bgColor = [];
+
+            // Datos de ejemplo para cada tecnología
+            if (category === 'front-end') {
+                switch (technology) {
+                    case 'CSS3':
+                        data = [80, 20];
+                        labels = ['Conocimiento', 'Falta'];
+                        bgColor = ['rgba(255, 99, 132, 0.2)', 'rgba(255, 159, 64, 0.2)'];
+                        break;
+                    case 'HTML5':
+                        data = [85, 15];
+                        labels = ['Conocimiento', 'Falta'];
+                        bgColor = ['rgba(54, 162, 235, 0.2)', 'rgba(255, 159, 64, 0.2)'];
+                        break;
+                    case 'JavaScript':
+                        data = [75, 25];
+                        labels = ['Conocimiento', 'Falta'];
+                        bgColor = ['rgba(75, 192, 192, 0.2)', 'rgba(255, 159, 64, 0.2)'];
+                        break;
+                    // Añadir más tecnologías
+                }
+            } else if (category === 'back-end') {
+                switch (technology) {
+                    case 'Node.js':
+                        data = [70, 30];
+                        labels = ['Conocimiento', 'Falta'];
+                        bgColor = ['rgba(255, 99, 132, 0.2)', 'rgba(255, 159, 64, 0.2)'];
+                        break;
+                    case 'Express':
+                        data = [60, 40];
+                        labels = ['Conocimiento', 'Falta'];
+                        bgColor = ['rgba(54, 162, 235, 0.2)', 'rgba(255, 159, 64, 0.2)'];
+                        break;
+                    // Añadir más tecnologías
+                }
             }
-        });
+
+            if (chart) {
+                chart.destroy();  // Eliminar el gráfico anterior
+            }
+
+            // Crear nuevo gráfico
+            const ctx = document.getElementById('myChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: bgColor
+                    }]
+                }
+            });
+
+            document.getElementById('chart-container').style.display = 'block';  // Mostrar el gráfico
+        }
     </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
