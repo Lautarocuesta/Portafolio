@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -43,28 +44,37 @@
         .section {
             margin-top: 40px;
         }
-        /* Estilo para secciones de imágenes */
         .images-row {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
-            margin-top: 30px;
+            gap: 20px;
         }
-        .images-row img {
-            width: 150px;
-            height: 150px;
-            border-radius: 8px;
+
+        .tech-icons {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .images-row img:hover {
-            transform: scale(1.1);
-        }
-        /* Estilos para iconos de tecnologías */
+
         .tech-icons img {
-            width: 80px;
-            height: 80px;
+            width: 60px;  /* Tamaño ajustable de las imágenes */
+            height: 60px;  /* Tamaño ajustable de las imágenes */
             margin: 10px;
+            transition: transform 0.3s ease;  /* Efecto de transición al pasar el ratón */
         }
+
         .tech-icons img:hover {
-            transform: scale(1.1);
+            transform: scale(1.1);  /* Agranda la imagen al pasar el ratón */
+        }
+
+        .tech-section, .section {
+            margin: 40px 0;
+            padding: 20px;
+        }
+
+        .tech-section h2, .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -84,9 +94,6 @@
                     <a class="nav-link" href="/edit_profile">Editar Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/skills">Skills</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/logout">Cerrar Sesión</a>
                 </li>
                 {% else %}
@@ -98,7 +105,6 @@
         </div>
     </nav>
 
-
     <div class="container text-center mt-5">
         <h1>Bienvenido a mi Portafolio</h1>
 
@@ -106,7 +112,7 @@
         <div class="profile-photo mb-4">
             <img src="{{ url_for('static', filename='img/logolog.png') }}" alt="Foto de Perfil" class="img-fluid shadow-lg">
         </div>
-
+        
         <p class="lead">Desarrollador Full Stack con experiencia en tecnologías modernas</p>
 
         <!-- Sección de Imágenes de Front y Back-end -->
@@ -130,9 +136,8 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original-wordmark.svg" alt="Mongoose">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodemon/nodemon-original.svg" />
-          
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodemon/nodemon-original.svg" alt="Nodemon">
             </div>
         </div>
 
@@ -144,11 +149,12 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="GitHub">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" alt="Flask">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original-wordmark.svg" alt="Vercel">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/p5js/p5js-original.svg" />
-          
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" alt="VSCode">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/p5js/p5js-original.svg" alt="P5.js">
             </div>
         </div>
+
+        <!-- Sección Tecnologías que me gustaría aprender -->
         <div class="section">
             <h2>Tecnologías que me gustaría aprender</h2>
             <div class="tech-icons">
@@ -161,8 +167,11 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="AngularJS">
             </div>
         </div>
-    </div>
-
+        <!-- Gráfico de Torta -->
+        <div class="section mt-5">
+            <h2>Gráfico de Torta</h2>
+            <canvas id="myPieChart" width="400" height="400"></canvas>
+        </div>
         <!-- Enlaces CV y GitHub -->
         <div class="section mb-5">
             <h2>Mi CV</h2>
@@ -172,8 +181,33 @@
         <div class="section mb-5">
             <h2>Mi GitHub</h2>
             <p>Visita mi perfil de GitHub para ver mis proyectos:</p>
-            <a class="btn btn-dark btn-custom" href="https://github.com/Lautarocuesta" target="_blank">Mi GitHub</a>
+            <a class="btn btn-dark btn-custom" href="https://github.com/Lautacars07" target="_blank">Ver GitHub</a>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Datos del gráfico
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow'],
+                datasets: [{
+                    label: 'Mi primer gráfico de torta',
+                    data: [300, 50, 100],
+                    backgroundColor: ['#FF0000', '#0000FF', '#FFFF00'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
 </body>
 </html>

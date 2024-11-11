@@ -65,10 +65,6 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Recordar contraseña')
     submit = SubmitField('TECLA ENTRAR')
 
-# Ruta de inicio
-@app.route('/')
-def index():
-    return render_template('base.html')
 
 # Ruta de registro
 @app.route('/register', methods=['GET', 'POST'])
@@ -106,9 +102,9 @@ def logout():
 def edit_portfolio():
     return render_template('edit_portfolio.html')
 
-@app.route('/skills')
-@login_required
-def skills():
+
+@app.route('/')
+def index():
     skills = {
         'CSS': 90,
         'HTML': 90,
@@ -130,7 +126,7 @@ def skills():
         'Visual Studio Code': 100,
         'Postman': 75
     }
-    return render_template('skills.html', skills=skills)
+    return render_template('base.html', skills=skills)
 
 # Crea las tablas de la base de datos
 @app.before_request
