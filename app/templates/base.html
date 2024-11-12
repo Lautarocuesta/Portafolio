@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #121212; /* Fondo oscuro */
+            color: #e1e1e1; /* Texto claro */
         }
         .container {
             max-width: 1000px;
@@ -27,20 +28,25 @@
             transform: scale(1.1);
         }
         h1, h2 {
-            color: #C30000;
+            color: #58a6ff; /* Azul brillante para encabezados */
             text-transform: uppercase;
         }
         .tech-section, .section {
-            background-color: #1e1e1e;
+            background-color: #161b22; 
             padding: 20px;
             border-radius: 8px;
             margin-top: 20px;
             text-align: center;
         }
         .btn-custom {
+            background-color: #238636; /* Verde para botones */
+            color: #ffffff;
             border-radius: 20px;
             margin-top: 10px;
         }
+        .btn-custom:hover {
+            background-color: #2ea043; /* Verde oscuro en hover */
+        }  
         .section {
             margin-top: 40px;
         }
@@ -84,6 +90,17 @@
             margin: auto;
             display: none;
         }
+        .social-icons a {
+    margin: 0 10px;
+    color: #333;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0077b5; /* Cambia este color si quieres un hover diferente */
+} 
     </style>
 </head>
 <body>
@@ -114,7 +131,24 @@
     </nav>
 
     <div class="container text-center mt-5">
-        <h1>Bienvenido a mi Portafolio</h1>
+        <!-- Nombre y datos principales -->
+        <h1>Lautaro Cuesta</h1>
+        <p class="lead">Programador</p>
+        <p>Córdoba</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/tu-linkedin" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/tu-github" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:tuemail@example.com" target="_blank">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.google.com/maps" target="_blank">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+        </div>
 
         <!-- Imagen Principal -->
         <div class="profile-photo mb-4">
@@ -122,6 +156,43 @@
         </div>
         
         <p class="lead">Desarrollador Full Stack con experiencia en tecnologías modernas</p>
+
+        <!-- Sección de Mejores Proyectos -->
+<div class="section">
+    <h2>Mejores Proyectos</h2>
+    <div class="row justify-content-center">
+        <!-- Tarjeta del proyecto Copa Renault -->
+        <div class="col-md-5 mb-4">
+            <div class="tech-section">
+                <h3>Copa Renault - Flask</h3>
+                <p>Un proyecto web desarrollado con Flask para gestionar un torneo de deportes escolares.</p>
+                <div class="languages-chart">
+                    <ul>
+                        <li><strong>HTML:</strong> 63.8%</li>
+                        <li><strong>Python:</strong> 30.6%</li>
+                        <li><strong>CSS:</strong> 3.8%</li>
+                        <li><strong>Mako:</strong> 1.8%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta del proyecto Blockchain -->
+        <div class="col-md-5 mb-4">
+            <div class="tech-section">
+                <h3>Blockchain</h3>
+                <p>Plataforma de criptomonedas desarrollada para facilitar la creación y el intercambio de activos digitales.</p>
+                <div class="languages-chart">
+                    <ul>
+                        <li><strong>HTML:</strong> 80.8%</li>
+                        <li><strong>Python:</strong> 13.1%</li>
+                        <li><strong>CSS:</strong> 6.1%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Sección de Imágenes de Front y Back-end -->
         <div class="images-row">
@@ -192,68 +263,6 @@
 
 
     <script>
-        let chart;
-
-        function showChart(category, technology) {
-            let data = [];
-            let labels = [];
-            let bgColor = [];
-
-            // Datos de ejemplo para cada tecnología
-            if (category === 'front-end') {
-                switch (technology) {
-                    case 'CSS3':
-                        data = [80, 20];
-                        labels = ['Conocimiento', 'Falta'];
-                        bgColor = ['rgba(255, 99, 132, 0.2)', 'rgba(255, 159, 64, 0.2)'];
-                        break;
-                    case 'HTML5':
-                        data = [85, 15];
-                        labels = ['Conocimiento', 'Falta'];
-                        bgColor = ['rgba(54, 162, 235, 0.2)', 'rgba(255, 159, 64, 0.2)'];
-                        break;
-                    case 'JavaScript':
-                        data = [75, 25];
-                        labels = ['Conocimiento', 'Falta'];
-                        bgColor = ['rgba(75, 192, 192, 0.2)', 'rgba(255, 159, 64, 0.2)'];
-                        break;
-                    // Añadir más tecnologías
-                }
-            } else if (category === 'back-end') {
-                switch (technology) {
-                    case 'Node.js':
-                        data = [70, 30];
-                        labels = ['Conocimiento', 'Falta'];
-                        bgColor = ['rgba(255, 99, 132, 0.2)', 'rgba(255, 159, 64, 0.2)'];
-                        break;
-                    case 'Express':
-                        data = [60, 40];
-                        labels = ['Conocimiento', 'Falta'];
-                        bgColor = ['rgba(54, 162, 235, 0.2)', 'rgba(255, 159, 64, 0.2)'];
-                        break;
-                    // Añadir más tecnologías
-                }
-            }
-
-            if (chart) {
-                chart.destroy();  // Eliminar el gráfico anterior
-            }
-
-            // Crear nuevo gráfico
-            const ctx = document.getElementById('myChart').getContext('2d');
-            chart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        data: data,
-                        backgroundColor: bgColor
-                    }]
-                }
-            });
-
-            document.getElementById('chart-container').style.display = 'block';  // Mostrar el gráfico
-        }
     </script>
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
