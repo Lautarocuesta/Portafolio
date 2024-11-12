@@ -101,6 +101,68 @@
 .social-icons a:hover {
     color: #0077b5; /* Cambia este color si quieres un hover diferente */
 } 
+.project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.project-image img:hover {
+    transform: scale(1.05);
+}
+
+.tech-section {
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.project-image img:hover {
+    transform: scale(1.05);
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tech-icon img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+.tech-icon img:hover {
+    transform: scale(1.1);
+}
+
+.tech-icon span {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #ffffff;
+    font-weight: bold;
+}
     </style>
 </head>
 <body>
@@ -134,65 +196,88 @@
         <!-- Nombre y datos principales -->
         <h1>Lautaro Cuesta</h1>
         <p class="lead">Programador</p>
-        <p>Córdoba</p>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/tu-linkedin" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/tu-github" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:tuemail@example.com" target="_blank">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://www.google.com/maps" target="_blank">
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-        </div>
-
+        <i class="fas fa-map-marker-alt"></i><p>Córdoba</p>
         <!-- Imagen Principal -->
         <div class="profile-photo mb-4">
             <img src="{{ url_for('static', filename='img/image.png') }}" alt="Foto de Perfil" class="img-fluid shadow-lg">
         </div>
         
-        <p class="lead">Desarrollador Full Stack con experiencia en tecnologías modernas</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/tu-linkedin" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Lautarocuesta" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="lauticuesta567@gmail.com" target="_blank">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </a>
+        </div>  
+        
 
         <!-- Sección de Mejores Proyectos -->
-<div class="section">
-    <h2>Mejores Proyectos</h2>
-    <div class="row justify-content-center">
-        <!-- Tarjeta del proyecto Copa Renault -->
-        <div class="col-md-5 mb-4">
-            <div class="tech-section">
-                <h3>Copa Renault - Flask</h3>
-                <p>Un proyecto web desarrollado con Flask para gestionar un torneo de deportes escolares.</p>
-                <div class="languages-chart">
-                    <ul>
-                        <li><strong>HTML:</strong> 63.8%</li>
-                        <li><strong>Python:</strong> 30.6%</li>
-                        <li><strong>CSS:</strong> 3.8%</li>
-                        <li><strong>Mako:</strong> 1.8%</li>
-                    </ul>
+        <div class="section">
+            <h2>Mejores Proyectos</h2>
+            <div class="row justify-content-center">
+                <!-- Tarjeta del proyecto Copa Renault -->
+                <div class="col-md-5 mb-4">
+                    <div class="tech-section">
+                        <!-- Imagen del proyecto Copa Renault -->
+                        <div class="project-image">
+                            <img src="{{ url_for('static', filename='img/ca.png') }}" alt="Copa Renault" class="img-fluid rounded shadow-sm">
+                        </div>
+                        <h3 class="mt-3">Copa Renault - Flask</h3>
+                        <p>Un proyecto web desarrollado con Flask para gestionar un torneo de deportes escolares.</p>
+                        
+                        <!-- Iconos de tecnologías y estadísticas -->
+                        <div class="tech-icons">
+                            <div class="tech-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5">
+                                <span>63.8%</span>
+                            </div>
+                            <div class="tech-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python">
+                                <span>30.6%</span>
+                            </div>
+                            <div class="tech-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3">
+                                <span>5.6%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Tarjeta del proyecto Blockchain -->
+                <div class="col-md-5 mb-4">
+                    <div class="tech-section">
+                        <!-- Imagen del proyecto Blockchain -->
+                        <div class="project-image">
+                            <img src="{{ url_for('static', filename='img/cri.png') }}" alt="Blockchain" class="img-fluid rounded shadow-sm">
+                        </div>
+                        <h3 class="mt-3">Blockchain</h3>
+                        <p>Plataforma de criptomonedas desarrollada para facilitar la creación y el intercambio de activos digitales.</p>
+                        
+                        <!-- Iconos de tecnologías y estadísticas -->
+                        <div class="tech-icons">
+                            <div class="tech-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5">
+                                <span>80.8%</span>
+                            </div>
+                            <div class="tech-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python">
+                                <span>13.1%</span>
+                            </div>
+                            <div class="tech-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3">
+                                <span>6.1%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Tarjeta del proyecto Blockchain -->
-        <div class="col-md-5 mb-4">
-            <div class="tech-section">
-                <h3>Blockchain</h3>
-                <p>Plataforma de criptomonedas desarrollada para facilitar la creación y el intercambio de activos digitales.</p>
-                <div class="languages-chart">
-                    <ul>
-                        <li><strong>HTML:</strong> 80.8%</li>
-                        <li><strong>Python:</strong> 13.1%</li>
-                        <li><strong>CSS:</strong> 6.1%</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        
 
         <!-- Sección de Imágenes de Front y Back-end -->
         <div class="images-row">
