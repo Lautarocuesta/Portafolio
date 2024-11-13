@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(to bottom, #178582 ,#0A1828,#FF595A); /* Fondo azul neón y negro */
+            background: linear-gradient(to bottom, #178582 ,#0A1828, #fffefefb); /* Fondo azul neón y negro */
             color: #8d5604; /* Texto claro */
         }
         .container {
@@ -28,11 +28,10 @@
             transform: scale(1.1);
         }
         h1, h2 {
-            color: #073ced; /* Azul brillante para encabezados */
+            color: #31EC56; /* Azul brillante para encabezados */
             text-transform: uppercase;
         }
         .tech-section, .section {
-            background-color: #161b22; 
             padding: 20px;
             border-radius: 8px;
             margin-top: 20px;
@@ -114,10 +113,7 @@
 }
 
 .tech-section {
-    background-color: #161b22;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
@@ -162,6 +158,28 @@
     font-size: 0.9em;
     color: #ffffff;
     font-weight: bold;
+}
+.goti {
+    background-color: #2E3B4E; /* Un tono oscuro similar al de un pizarrón */
+    color: #ffffff; /* Texto en blanco para buen contraste */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+    border: 2px solid #1D2A37; /* Borde de color similar al fondo */
+    text-align: center; /* Alinea contenido al centro */
+
+}
+
+.goti h3 {
+    color: #FFD700; /* Un tono dorado o amarillo para destacar los títulos */
+    font-size: 1.2rem;
+}
+.goti .tech-icons span {
+    color: #FFD700; /* Usa el mismo tono dorado o amarillo para el texto de los porcentajes */
+}
+
+.goti p {
+    color: #D3D3D3; /* Un gris claro para el texto */
 }
     </style>
 </head>
@@ -216,67 +234,68 @@
         </div>  
         
 
-        <!-- Sección de Mejores Proyectos -->
-        <div class="section">
-            <h2>Mejores Proyectos</h2>
-            <div class="row justify-content-center">
-                <!-- Tarjeta del proyecto Copa Renault -->
-                <div class="col-md-5 mb-4">
-                    <div class="tech-section">
-                        <!-- Imagen del proyecto Copa Renault -->
-                        <div class="project-image">
-                            <img src="{{ url_for('static', filename='img/ca.png') }}" alt="Copa Renault" class="img-fluid rounded shadow-sm">
-                        </div>
-                        <h3 class="mt-3">Copa Renault - Flask</h3>
-                        <p>Un proyecto web desarrollado con Flask para gestionar un torneo de deportes escolares.</p>
-                        
-                        <!-- Iconos de tecnologías y estadísticas -->
-                        <div class="tech-icons">
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5">
-                                <span>63.8%</span>
-                            </div>
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python">
-                                <span>30.6%</span>
-                            </div>
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3">
-                                <span>5.6%</span>
-                            </div>
-                        </div>
-                    </div>
+      <!-- Sección de Mejores Proyectos -->
+<div class="section">
+    <h2>Mejores Proyectos</h2>
+    <div class="row justify-content-center">
+        <!-- Tarjeta del proyecto Copa Renault -->
+        <div class="col-md-5 mb-4">
+            <div class="goti tech-section">
+                <!-- Imagen del proyecto Copa Renault -->
+                <div class="project-image">
+                    <img src="{{ url_for('static', filename='img/ca.png') }}" alt="Copa Renault" class="img-fluid rounded shadow-sm">
                 </div>
-        
-                <!-- Tarjeta del proyecto Blockchain -->
-                <div class="col-md-5 mb-4">
-                    <div class="tech-section">
-                        <!-- Imagen del proyecto Blockchain -->
-                        <div class="project-image">
-                            <img src="{{ url_for('static', filename='img/cri.png') }}" alt="Blockchain" class="img-fluid rounded shadow-sm">
-                        </div>
-                        <h3 class="mt-3">Blockchain</h3>
-                        <p>Plataforma de criptomonedas desarrollada para facilitar la creación y el intercambio de activos digitales.</p>
-                        
-                        <!-- Iconos de tecnologías y estadísticas -->
-                        <div class="tech-icons">
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5">
-                                <span>80.8%</span>
-                            </div>
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python">
-                                <span>13.1%</span>
-                            </div>
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3">
-                                <span>6.1%</span>
-                            </div>
-                        </div>
+                <h3 class="mt-3">Copa Renault - Flask</h3>
+                <p>Un proyecto web desarrollado con Flask para gestionar un torneo de deportes escolares.</p>
+                
+                <!-- Iconos de tecnologías y estadísticas -->
+                <div class="tech-icons">
+                    <div class="tech-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5">
+                        <span>63.8%</span>
+                    </div>
+                    <div class="tech-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python">
+                        <span>30.6%</span>
+                    </div>
+                    <div class="tech-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3">
+                        <span>5.6%</span>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Tarjeta del proyecto Blockchain -->
+        <div class="col-md-5 mb-4">
+            <div class="goti tech-section">
+                <!-- Imagen del proyecto Blockchain -->
+                <div class="project-image">
+                    <img src="{{ url_for('static', filename='img/cri.png') }}" alt="Blockchain" class="img-fluid rounded shadow-sm">
+                </div>
+                <h3 class="mt-3">Blockchain</h3>
+                <p>Plataforma de criptomonedas desarrollada para facilitar la creación y el intercambio de activos digitales.</p>
+                
+                <!-- Iconos de tecnologías y estadísticas -->
+                <div class="tech-icons">
+                    <div class="tech-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5">
+                        <span>80.8%</span>
+                    </div>
+                    <div class="tech-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python">
+                        <span>13.1%</span>
+                    </div>
+                    <div class="tech-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3">
+                        <span>6.1%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
         
 
         <!-- Sección de Imágenes de Front y Back-end -->
