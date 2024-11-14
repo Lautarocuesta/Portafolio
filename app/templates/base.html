@@ -6,12 +6,15 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(to bottom, #178582 ,#0A1828, #fffefefb); /* Fondo azul neón y negro */
-            color: #8d5604; /* Texto claro */
+            color: #ffffff; /* Texto claro */
         }
         .container {
             max-width: 1000px;
@@ -28,7 +31,7 @@
             transform: scale(1.1);
         }
         h1, h2 {
-            color: #31EC56; /* Azul brillante para encabezados */
+            color: #ffa806; /* Azul brillante para encabezados */
             text-transform: uppercase;
         }
         .tech-section, .section {
@@ -298,60 +301,131 @@
 
         
 
-        <!-- Sección de Imágenes de Front y Back-end -->
-        <div class="images-row">
-            <!-- Front-end icons -->
-            <div class="tech-icons">
-                <h2>Front-end</h2>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3" onclick="showChart('front-end', 'CSS3')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5" onclick="showChart('front-end', 'HTML5')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" onclick="showChart('front-end', 'JavaScript')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" alt="React" onclick="showChart('front-end', 'React')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python" onclick="showChart('front-end', 'Python')">
+<div class="container">
+    <!-- Carrusel Front-end -->
+    <div id="frontEndCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+        <h2 class="pixel-font">Front-end</h2>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3" class="carousel-img">
             </div>
-            
-            <!-- Back-end icons -->
-            <div class="tech-icons">
-                <h2>Back-end</h2>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" alt="NPM" onclick="showChart('back-end', 'NPM')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" onclick="showChart('back-end', 'Node.js')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" onclick="showChart('back-end', 'MySQL')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB" onclick="showChart('back-end', 'MongoDB')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original-wordmark.svg" alt="Mongoose" onclick="showChart('back-end', 'Mongoose')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express" onclick="showChart('back-end', 'Express')">
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5" class="carousel-img">
             </div>
-        </div>
-
-        <!-- Sección Tecnologías -->
-        <div class="tech-section">
-            <h2>Tecnologías que manejo</h2>
-            <div class="tech-icons">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="GitHub">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" alt="Flask">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original-wordmark.svg" alt="Vercel">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" alt="VSCode">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/p5js/p5js-original.svg" alt="P5.js">
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="carousel-img">
             </div>
-        </div>
-
-        <!-- Canvas para el gráfico de torta -->
-        <div class="chart-container" id="chart-container">
-            <canvas id="myChart" width="400" height="400"></canvas>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" alt="React" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python" class="carousel-img">
+            </div>
         </div>
     </div>
-    <div class="section">
-        <h2>Tecnologías que me gustaría aprender</h2>
-        <div class="tech-icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unrealengine/unrealengine-original-wordmark.svg" alt="Unreal Engine">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original-wordmark.svg" alt="Unity">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/solidity/solidity-original.svg" alt="Solidity">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original-wordmark.svg" alt="Ruby">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/polygon/polygon-original-wordmark.svg" alt="Polygon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="AngularJS">
+
+    <!-- Carrusel Back-end -->
+    <div id="backEndCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+        <h2 class="pixel-font">Back-end</h2>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" alt="NPM" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original-wordmark.svg" alt="Mongoose" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express" class="carousel-img">
+            </div>
         </div>
     </div>
+
+    <!-- Carrusel Tecnologías que manejo -->
+    <div id="techCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+        <h2 class="pixel-font">Tecnologías que manejo</h2>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="GitHub" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" alt="Flask" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original-wordmark.svg" alt="Vercel" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" alt="VSCode" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/p5js/p5js-original.svg" alt="P5.js" class="carousel-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrusel Tecnologías que me gustaría aprender -->
+    <div id="learnCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+        <h2 class="pixel-font">Tecnologías que me gustaría aprender</h2>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unrealengine/unrealengine-original-wordmark.svg" alt="Unreal Engine" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original-wordmark.svg" alt="Unity" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/solidity/solidity-original.svg" alt="Solidity" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original-wordmark.svg" alt="Ruby" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/polygon/polygon-original-wordmark.svg" alt="Polygon" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop" class="carousel-img">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="AngularJS" class="carousel-img">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Ajusta el tamaño de las imágenes en los carruseles */
+    .carousel-img {
+        width: 100px; /* Tamaño pequeño de las imágenes */
+        height: auto;
+        margin: 0 auto; /* Centra las imágenes */
+    }
+
+    /* Estilo centrado para los encabezados y fuente pixelada */
+    .carousel h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: 'Press Start 2P', cursive; /* Fuente pixelada */
+    }
+
+    /* Clase para la fuente pixelada */
+    .pixel-font {
+        font-family: 'Press Start 2P', cursive; /* Asegúrate de cargar esta fuente */
+    }
+</style>
+
+<!-- Enlace a la fuente pixelada (Google Fonts) -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
      <!-- Enlaces CV y GitHub -->
      <div class="section mb-5">
         <h2>Mi CV</h2>
