@@ -79,16 +79,18 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
-# Ruta de login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        # Aquí agregarías tu lógica de autenticación
+        # Aquí iría tu lógica de autenticación (ej. verificación de usuario)
         flash('Inicio de sesión exitoso', 'success')
-        return redirect(url_for('index'))  # Redirige a la página de inicio u otra
-    return render_template('login.html', form=form)
-
+        print("Formulario validado, redirigiendo...")
+        return redirect(url_for('base.html'))  # Asegúrate de que 'index' sea el nombre correcto
+    else:
+        if form.errors:
+            print("Errores en el formulario:", form.errors)  # Muestra errores de validación si los hay
+    return render_template('base.html', form=form)
 
 # Ruta para cerrar sesión
 @app.route('/logout')

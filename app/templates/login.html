@@ -2,55 +2,56 @@
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+    <div class="card shadow-lg p-5" style="width: 100%; max-width: 400px; border-radius: 20px;">
         <div class="text-center mb-4">
-            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="width: 50px;">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="width: 60px;">
         </div>
-        <h2 class="text-center mb-4">Inicio De Sesión</h2>
+        <h2 class="text-center mb-4" style="color: #333; font-weight: bold;">Inicio de Sesión</h2>
         <form method="POST" action="{{ url_for('login') }}">
             {{ form.hidden_tag() }}
 
-            <div class="mb-3">
-                {{ form.email.label(class="form-label") }}
-                {{ form.email(class="form-control", placeholder="Correo electrónico") }}
+            <div class="mb-4">
+                {{ form.email.label(class="form-label", style="font-weight: 600;") }}
+                {{ form.email(class="form-control form-control-lg", placeholder="Correo electrónico") }}
             </div>
 
-            <div class="mb-3 position-relative">
-                {{ form.password.label(class="form-label") }}
-                {{ form.password(class="form-control", placeholder="Contraseña") }}
-                <span class="position-absolute" style="top: 50%; right: 10px; cursor: pointer;">
-                    <i class="fa fa-eye"></i>
+            <div class="mb-4 position-relative">
+                {{ form.password.label(class="form-label", style="font-weight: 600;") }}
+                {{ form.password(class="form-control form-control-lg", placeholder="Contraseña") }}
+                <span class="position-absolute" style="top: 50%; right: 15px; cursor: pointer; transform: translateY(-50%);" onclick="togglePasswordVisibility()">
+                    <i class="fa fa-eye" id="toggle-password"></i>
                 </span>
             </div>
 
             <div class="form-check mb-3">
                 {{ form.remember(class="form-check-input") }}
-                {{ form.remember.label(class="form-check-label") }}
+                {{ form.remember.label(class="form-check-label", style="font-weight: 500;") }}
             </div>
 
-            <div class="text-end mb-3">
-                <a href="{{ url_for('forgot_password') }}" class="text-decoration-none">He olvidado la contraseña</a>
+            <div class="text-end mb-4">
+                <a href="{{ url_for('forgot_password') }}" class="text-decoration-none text-muted" style="font-size: 0.9rem;">¿Olvidaste tu contraseña?</a>
             </div>
 
             <div class="d-grid">
-                {{ form.submit(class="btn btn-danger btn-block") }}
+                {{ form.submit(class="btn btn-primary btn-lg") }}
             </div>
         </form>
     </div>
 </div>
 
-<!-- Incluye FontAwesome para el icono del ojo si quieres funcionalidad de mostrar/ocultar contraseña -->
+<!-- FontAwesome para el icono de ojo -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script>
-    document.querySelector('.fa-eye').addEventListener('click', function() {
-        let passwordField = document.querySelector('input[type="password"]');
+    function togglePasswordVisibility() {
+        const passwordField = document.querySelector('input[name="password"]');
+        const toggleIcon = document.getElementById('toggle-password');
         if (passwordField.type === 'password') {
             passwordField.type = 'text';
-            this.classList.toggle('fa-eye-slash');
+            toggleIcon.classList.replace('fa-eye', 'fa-eye-slash');
         } else {
             passwordField.type = 'password';
-            this.classList.toggle('fa-eye-slash');
+            toggleIcon.classList.replace('fa-eye-slash', 'fa-eye');
         }
-    });
+    }
 </script>
 {% endblock %}

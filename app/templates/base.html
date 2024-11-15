@@ -22,13 +22,12 @@
             padding: 20px;
         }
         .profile-photo img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            transition: transform 0.3s;
+            border: 5px solid black;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .profile-photo img:hover {
             transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         h1, h2 {
             color: #ffa806; /* Azul brillante para encabezados */
@@ -49,6 +48,15 @@
         .btn-custom:hover {
             background-color: #2ea043; /* Verde oscuro en hover */
         }  
+        .row {
+    margin-bottom: 20px;
+}
+        /* Fuente pixelada para el nombre */
+        .pixel-font {
+            font-family: 'Press Start 2P', cursive;  /* Fuente pixelada */
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
         .section {
             margin-top: 40px;
         }
@@ -98,6 +106,14 @@
     font-size: 24px;
     text-decoration: none;
     transition: color 0.3s;
+}
+/* Estilo para el correo electrónico */
+.email-container {
+    background-color: #42a50c8f;
+    color: #333;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .social-icons a:hover {
@@ -213,28 +229,47 @@
         </div>
     </nav>
 
-    <div class="container text-center mt-5">
-        <!-- Nombre y datos principales -->
-        <h1>Lautaro Cuesta</h1>
-        <p class="lead">Programador</p>
-        <i class="fas fa-map-marker-alt"></i><p>Córdoba</p>
-        <!-- Imagen Principal -->
-        <div class="profile-photo mb-4">
-            <img src="{{ url_for('static', filename='img/image.png') }}" alt="Foto de Perfil" class="img-fluid shadow-lg">
+    <div class="container mt-5">
+        <!-- Fila para la imagen y datos principales -->
+        <div class="row align-items-center">
+            <!-- Imagen Principal alineada a la izquierda -->
+            <div class="col-3">
+                <img src="{{ url_for('static', filename='img/image.png') }}" alt="Foto de Perfil" class="img-fluid shadow-lg rounded-circle border border-dark" style="width: 150px; height: 150px;">
+            </div>
+            
+            <!-- Datos de Lautaro -->
+            <div class="col-9">
+                <h1 class="display-4 pixel-font">Lautaro Cuesta</h1>
+                <p class="lead mb-0">Programador</p>
+                <span class="badge bg-primary">Disponible para trabajar</span>
+                <p class="mt-2 text-warning">Desarrollador Web y Programador</p>
+                <p>Córdoba, Argentina</p>
+            </div>
         </div>
-        
-        <div class="social-icons">
+    
+        <!-- Correo electrónico sin enlace -->
+        <div class="email-container mt-4 mb-4 p-3 rounded shadow-sm" style="background-color: #f8f9fa;">
+            <p class="m-0" style="font-size: 1.1rem; font-weight: bold;">lauticuesta567@gmail.com</p>
+        </div>
+    
+        <!-- Redes sociales (GitHub y LinkedIn) -->
+        <div class="social-icons mb-3">
             <a href="https://www.linkedin.com/in/tu-linkedin" target="_blank">
-                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-linkedin" style="font-size: 2rem; margin-right: 20px;"></i>
             </a>
             <a href="https://github.com/Lautarocuesta" target="_blank">
-                <i class="fab fa-github"></i>
+                <i class="fab fa-github" style="font-size: 2rem;"></i>
             </a>
-            <a href="lauticuesta567@gmail.com" target="_blank">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </a>
-        </div>  
+        </div>
+    
+        <!-- Sección de CV -->
+        <div class="section mb-5 text-center">
+            <h2 class="h4">Mi CV</h2>
+            <a class="btn btn-primary btn-sm" href="https://www.canva.com/design/DAGUOxBlHok/0qN3sEflJaNmu7QbGkbezQ/edit" target="_blank">Ver CV</a>
+        </div>
+    </div>
+    
+    
         
 
       <!-- Sección de Mejores Proyectos -->
@@ -303,7 +338,7 @@
 
 <div class="container">
     <!-- Carrusel Front-end -->
-    <div id="frontEndCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+    <div id="frontEndCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3000">
         <h2 class="pixel-font">Front-end</h2>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -325,7 +360,7 @@
     </div>
 
     <!-- Carrusel Back-end -->
-    <div id="backEndCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+    <div id="backEndCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3500">
         <h2 class="pixel-font">Back-end</h2>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -350,7 +385,7 @@
     </div>
 
     <!-- Carrusel Tecnologías que manejo -->
-    <div id="techCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+    <div id="techCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3000">
         <h2 class="pixel-font">Tecnologías que manejo</h2>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -375,7 +410,7 @@
     </div>
 
     <!-- Carrusel Tecnologías que me gustaría aprender -->
-    <div id="learnCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+    <div id="learnCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3000">
         <h2 class="pixel-font">Tecnologías que me gustaría aprender</h2>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -406,34 +441,22 @@
 <style>
     /* Ajusta el tamaño de las imágenes en los carruseles */
     .carousel-img {
-        width: 100px; /* Tamaño pequeño de las imágenes */
+        width: 100px;
         height: auto;
-        margin: 0 auto; /* Centra las imágenes */
+        margin: 0 auto;
     }
 
     /* Estilo centrado para los encabezados y fuente pixelada */
-    .carousel h2 {
+    h2.pixel-font {
         text-align: center;
         margin-bottom: 20px;
-        font-family: 'Press Start 2P', cursive; /* Fuente pixelada */
-    }
-
-    /* Clase para la fuente pixelada */
-    .pixel-font {
-        font-family: 'Press Start 2P', cursive; /* Asegúrate de cargar esta fuente */
+        font-family: 'Press Start 2P', cursive;
     }
 </style>
 
+
 <!-- Enlace a la fuente pixelada (Google Fonts) -->
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-     <!-- Enlaces CV y GitHub -->
-     <div class="section mb-5">
-        <h2>Mi CV</h2>
-        <p>Puedes ver y descargar mi currículum desde el siguiente enlace:</p>
-        <a class="btn btn-primary btn-custom" href="https://www.canva.com/design/DAGUOxBlHok/0qN3sEflJaNmu7QbGkbezQ/edit" target="_blank">Ver CV</a>
-    </div>
-</div>
-
 
     <script>
     </script>
