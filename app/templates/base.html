@@ -205,28 +205,15 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/index">Inicio</a>
+        <a class="navbar-brand" href="{{ url_for('index') }}"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/static/a/cv.pdf" download>Descargar CV en PDF</a>
+                    <a class="nav-link" href="{{ url_for('login') }}">Iniciar Sesión</a>
                 </li>
-                {% if current_user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="/edit_profile">Editar Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Cerrar Sesión</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Iniciar Sesión</a>
-                </li>
-                {% endif %}
-            </ul>
         </div>
     </nav>
 
