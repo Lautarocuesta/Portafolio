@@ -4,3 +4,6 @@ CREATE TABLE user (
     email VARCHAR(150) NOT NULL UNIQUE,
     password_hash VARCHAR(150) NOT NULL
 );
+USE Portafolio;
+SELECT * FROM User;
+
