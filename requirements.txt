@@ -1,5 +1,10 @@
 Flask==2.2.3
-Flask-SQLAlchemy==2.5.1
+Werkzeug==2.2.3
+Flask-Login==0.6.2
 Flask-Bcrypt==1.0.1
+Flask-SQLAlchemy==2.5.1
+SQLAlchemy==1.4.49
 Flask-WTF==1.0.1
-Flask-Login==0.6.1
+Flask-Migrate==4.0.5
+PyMySQL==1.1.0
+cryptography==42.0.8
