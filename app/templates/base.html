@@ -12,11 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
+            margin: 0;
+            padding: 0;
             font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
             background: linear-gradient(to bottom, #178582 ,#0A1828, #fffefefb); /* Fondo azul neón y negro */
             color: #ffffff; /* Texto claro */
         }
-        .container {
+        .container-fluid {
             max-width: 1000px;
             margin: auto;
             padding: 20px;
@@ -204,37 +207,24 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('index') }}"></a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                {% if current_user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('logout') }}">Cerrar Sesión</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('login') }}">Iniciar Sesión</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
 
     <div class="container mt-5">
         <!-- Fila para la imagen y datos principales -->
         <div class="row align-items-center">
             <!-- Imagen Principal alineada a la izquierda -->
-            <div class="col-3">
-                <img src="{{ url_for('static', filename='img/image.png') }}" alt="Foto de Perfil" class="img-fluid shadow-lg rounded-circle border border-dark" style="width: 150px; height: 150px;">
+            <div class="col-3 d-flex align-items-center justify-content-center">
+            <img src="{{ url_for('static', filename='img/foto.png') }}" 
+            alt="Foto de Perfil" 
+            class="img-fluid shadow-lg rounded-circle border border-dark profile-photo-ajuste" 
+            style="width: 150px; height: 150px; object-fit: cover;">
             </div>
+
             
             <!-- Datos de Lautaro -->
             <div class="col-9">
                 <h1 class="display-4 pixel-font">Lautaro Cuesta</h1>
-                <p class="lead mb-0">Programador</p>
+                <p class="lead mb-0">Analista de datos y Desarrolador web</p>
                 <span class="badge bg-primary">Disponible para trabajar</span>
-                <p class="mt-2 text-warning">Desarrollador Web y Programador</p>
                 <p>Córdoba, Argentina</p>
             </div>
         </div>
@@ -242,7 +232,7 @@
         <div class="container text-center">
             <!-- Redes sociales (GitHub, LinkedIn, CV, Email) -->
             <div class="social-icons mb-4">
-                <a href="https://www.linkedin.com/in/tu-linkedin" target="_blank" style="margin-right: 20px;">
+                <a href="https://www.linkedin.com/in/lautarocuesta" target="_blank" style="margin-right: 20px;">
                     <i class="fab fa-linkedin" style="font-size: 2rem;"></i>
                 </a>
                 
@@ -350,6 +340,8 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" alt="React" class="tech-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python" class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original-wordmark.svg" alt="bootstrap" class="tech-icon" />
+          
         </div>
     </div>
 
@@ -363,6 +355,7 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB" class="tech-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original-wordmark.svg" alt="Mongoose" class="tech-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express" class="tech-icon">
+             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" class="tech-icon" />
         </div>
     </div>
 
@@ -375,6 +368,18 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" alt="Flask" class="tech-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original-wordmark.svg" alt="Vercel" class="tech-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" alt="VSCode" class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="Aws" class="tech-icon" />
+          
+          
+        </div>
+    </div>
+
+    <div class="tech-section">
+        <h2 class="pixel-font">Visualizacion de Datos</h2>
+        <div class="tech-grid">
+           
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg" alt="googlecolab" class="tech-icon" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="PowerBi" class="tech-icon">
         </div>
     </div>
 
