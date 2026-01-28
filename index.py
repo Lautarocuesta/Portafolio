@@ -15,7 +15,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__, template_folder='app/templates')
 
 # Configuración de la base de datos
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:2612@localhost:3306/Portafolio'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'tu_clave_secreta'  # Cambia esto por una clave segura
 
@@ -89,5 +89,7 @@ with app.app_context():
     db.create_all()
 
 # Iniciar la aplicación
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
+    app.run(host="0.0.0.0", port=5000)
