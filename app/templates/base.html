@@ -10,6 +10,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
         body {
             margin: 0;
@@ -204,6 +206,8 @@
     color: #D3D3D3; /* Un gris claro para el texto */
 }
 
+
+
     </style>
 </head>
 <body>
@@ -223,7 +227,7 @@
             <!-- Datos de Lautaro -->
             <div class="col-9">
                 <h1 class="display-4 pixel-font">Lautaro Cuesta</h1>
-                <p class="lead mb-0">Analista de datos y Desarrolador web</p>
+                <p class="lead mb-0">Analista de datos y Desarrollador web</p>
                 <span class="badge bg-primary">Disponible para trabajar</span>
                 <p>Córdoba, Argentina</p>
             </div>
@@ -246,13 +250,11 @@
                     CV
                 </a>
                 
-                
-                <!-- Email -->
-                <a href="mailto:lauticuesta567@gmail.com" target="_blank" style="margin-right: 10px; text-decoration: none; color: #000;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail Icon" class="icon-hover" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 5px;"> lauticuesta567@gmail.com
-                </a>
-            </div>
-            
+               <a href="lauticuesta567@gmail.com"
+   target="_blank"
+   style="margin-right: 20px; text-decoration: none; color: inherit;">
+    <img src="{{ url_for('static', filename='img/gmail.png') }}"alt="Gmail Icon" class="icon-hover" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 5px;"> lauticuesta567@gmail.com </a>
+</a>
             </div>
         </div>
         
