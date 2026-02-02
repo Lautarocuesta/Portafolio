@@ -206,7 +206,24 @@
     color: #D3D3D3; /* Un gris claro para el texto */
 }
 
+.social-icons a {
+    color: #000000;
+    font-size: 2rem;
+    text-decoration: none;
+}
 
+.icon-img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+    filter: grayscale(10%) brightness(0.75);
+}
+
+.social-equal {
+    color: #767676;
+    font-size: 1rem;
+}
 
     </style>
 </head>
@@ -234,27 +251,37 @@
         </div>
     
         <div class="container text-center">
-            <!-- Redes sociales (GitHub, LinkedIn, CV, Email) -->
-            <div class="social-icons mb-4">
-                <a href="https://www.linkedin.com/in/lautarocuesta" target="_blank" style="margin-right: 20px;">
-                    <i class="fab fa-linkedin" style="font-size: 2rem;"></i>
-                </a>
-                
-                <!-- GitHub -->
-                <a href="https://github.com/Lautarocuesta" target="_blank" style="margin-right: 20px;">
-                    <i class="fab fa-github" style="font-size: 2rem;"></i>
-                </a>
-                
-                <a href="https://docs.google.com/document/d/1u1At7CiMilAo9aTYye0nIldCucMsWlo22jz_vV6HICM/edit?usp=sharing" target="_blank" style="margin-right: 20px; text-decoration: none; color: inherit;">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/readthedocs/readthedocs-original.svg" alt="ReadTheDocs Icon" style="width: 24px; height: 24px; vertical-align: middle; transition: transform 0.3s ease; margin-right: 5px;">
-                    CV
-                </a>
-                
-            <a>
-                <img src="{{ url_for('static', filename='img/gmail.png') }}"alt="Gmail Icon" class="icon-hover" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 5px;"> lauticuesta567@gmail.com </a>
-            </a>
-            </div>
-        </div>
+    <div class="social-icons mb-4">
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/lautarocuesta" target="_blank" style="margin-right: 20px;">
+            <i class="fab fa-linkedin"></i>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/Lautarocuesta" target="_blank" style="margin-right: 20px;">
+            <i class="fab fa-github"></i>
+        </a>
+
+        <!-- CV -->
+        <a href="https://docs.google.com/document/d/1u1At7CiMilAo9aTYye0nIldCucMsWlo22jz_vV6HICM/edit?usp=sharing"
+           target="_blank"
+           class="social-equal"
+           style="margin-right: 20px; text-decoration: none;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/readthedocs/readthedocs-original.svg"
+                 class="icon-img">
+            CV
+        </a>
+
+        <!-- Gmail -->
+        <a class="social-equal">
+            <img src="{{ url_for('static', filename='img/gmail.png') }}"
+                 class="icon-img">
+            lauticuesta567@gmail.com
+        </a>
+
+    </div>
+</div>
         
        
         
@@ -262,13 +289,14 @@
 <!-- Sección de Mejores Proyectos -->
 <div class="section">
     <h2>Proyectos</h2>
+
     <div class="row justify-content-center">
 
-        <!-- Tarjeta del proyecto Copa Renault -->
+        <!-- PROYECTO 1: COPA RENAULT -->
         <div class="col-md-5 mb-4">
             <div class="goti tech-section">
 
-                <!-- Imagen del proyecto (CAROUSEL AUTOMÁTICO) -->
+                <!-- Carousel Copa Renault -->
                 <div class="project-image">
                     <div id="copaCarousel"
                         class="carousel slide"
@@ -277,12 +305,12 @@
 
                         <div class="carousel-inner rounded shadow-sm">
                             <div class="carousel-item active">
-                                <img src="{{ url_for('static', filename='img/copa.png') }}"
+                                <img src="{{ url_for('static', filename='img/ca.png') }}"
                                     class="d-block w-100"
                                     alt="Copa Renault 1">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ url_for('static', filename='img/ca.png') }}"
+                                <img src="{{ url_for('static', filename='img/copa.png') }}"
                                     class="d-block w-100"
                                     alt="Copa Renault 2">
                             </div>
@@ -291,29 +319,23 @@
                 </div>
 
                 <h3 class="mt-3">Copa Renault - Flask</h3>
-                <p>Un proyecto web desarrollado con Flask para gestionar un torneo de deportes escolares.</p>
+                <p>Aplicación web desarrollada con Flask para la gestión de torneos deportivos escolares.</p>
 
-                <!-- Iconos de tecnologías -->
                 <div class="tech-icons">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg"
-                            alt="HTML5">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg">
                     </div>
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg"
-                            alt="Python">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg">
                     </div>
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg"
-                            alt="CSS3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg">
                     </div>
                 </div>
 
-                <!-- Icono de GitHub -->
                 <div class="github-icon mt-3">
                     <a href="https://github.com/Lautarocuesta/copa-renault-flask/tree/C" target="_blank">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg"
-                            alt="GitHub"
                             style="width: 30px;">
                     </a>
                 </div>
@@ -321,41 +343,60 @@
             </div>
         </div>
 
-    </div>
-</div>
-
-        
-        <!-- Tarjeta del proyecto Blockchain -->
+        <!-- PROYECTO 2: ECOHUELLA -->
         <div class="col-md-5 mb-4">
             <div class="goti tech-section">
-                <!-- Imagen del proyecto Blockchain -->
+
+                <!-- Carousel EcoHuella -->
                 <div class="project-image">
-                    <img src="{{ url_for('static', filename='img/cri.png') }}" alt="Blockchain" class="img-fluid rounded shadow-sm">
-                </div>
-                <h3 class="mt-3">Blockchain</h3>
-                <p>Plataforma de criptomonedas desarrollada para facilitar la creación y el intercambio de activos digitales.</p>
-                
-                <!-- Iconos de tecnologías y estadísticas -->
-                <div class="tech-icons">
-                    <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5">
-                    </div>
-                    <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="Python">
-                    </div>
-                    <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3">
+                    <div id="ecoCarousel"
+                        class="carousel slide"
+                        data-bs-ride="carousel"
+                        data-bs-interval="3000">
+
+                        <div class="carousel-inner rounded shadow-sm">
+                            <div class="carousel-item active">
+                                <img src="{{ url_for('static', filename='img/eco.png') }}"
+                                    class="d-block w-100"
+                                    alt="EcoHuella 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ url_for('static', filename='img/ecoh.png') }}"
+                                    class="d-block w-100"
+                                    alt="EcoHuella 2">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Icono de GitHub -->
+                <h3 class="mt-3">EcoHuella</h3>
+                <p>
+                    Plataforma orientada a la sostenibilidad y al tratamiento responsable de residuos,
+                    promoviendo la bioeconomía y el desarrollo sostenible.
+                </p>
+
+                <div class="tech-icons">
+                    <div class="tech-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg">
+                    </div>
+                    <div class="tech-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg">
+                    </div>
+                    <div class="tech-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg">
+                    </div>
+                </div>
+
                 <div class="github-icon mt-3">
-                    <a href="https://github.com/Lautarocuesta/blockchain" target="_blank">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="GitHub" class="img-fluid" style="width: 30px;">
+                    <a href="https://github.com/Lautarocuesta/Ecohuella" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg"
+                            style="width: 30px;">
                     </a>
                 </div>
+
             </div>
         </div>
+
     </div>
 </div>
         
