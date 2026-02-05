@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <style>
         body {
@@ -57,11 +56,12 @@
     margin-bottom: 20px;
 }
         /* Fuente pixelada para el nombre */
+    @media (max-width: 768px) {
         .pixel-font {
-            font-family: 'Press Start 2P', cursive;  /* Fuente pixelada */
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-        }
+        font-size: 1.4rem;
+        text-align: center;
+    }
+}
         .section {
             margin-top: 40px;
         }
@@ -108,7 +108,7 @@
         .social-icons a {
     margin: 0 10px;
     color: #333;
-    font-size: 24px;
+    font-size: 28px;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -121,9 +121,10 @@
     font-weight: bold;
 }
 
+
 .social-icons a:hover {
-    color: #0077b5; /* Cambia este color si quieres un hover diferente */
-} 
+    color: #ffa806;
+}
 .project-image img {
     width: 100%;
     height: auto;
@@ -160,11 +161,10 @@
     margin-top: 15px;
 }
 
-.tech-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+@media (max-width: 768px) {
+    .tech-icon {
+        width: 60px;
+    }
 }
 
 .tech-icon img {
@@ -183,6 +183,7 @@
     color: #ffffff;
     font-weight: bold;
 }
+@media (max-width: 768px) {
 .goti {
     background-color: #2E3B4E; /* Un tono oscuro similar al de un pizarrón */
     color: #ffffff; /* Texto en blanco para buen contraste */
@@ -205,11 +206,14 @@
 .goti p {
     color: #D3D3D3; /* Un gris claro para el texto */
 }
+}
 
-.social-icons a {
-    color: #000000;
-    font-size: 2rem;
-    text-decoration: none;
+@media (max-width: 576px) {
+    .social-icons a {
+        font-size: 1.5rem;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
 }
 
 .icon-img {
@@ -233,41 +237,36 @@
         <!-- Fila para la imagen y datos principales -->
         <div class="row align-items-center">
             <!-- Imagen Principal alineada a la izquierda -->
-            <div class="col-3 d-flex align-items-center justify-content-center">
-            <img src="{{ url_for('static', filename='img/foto.png') }}" 
-            alt="Foto de Perfil" 
-            class="img-fluid shadow-lg rounded-circle border border-dark profile-photo-ajuste" 
-            style="width: 150px; height: 150px; object-fit: cover;">
-            </div>
+            <div class="row align-items-center text-center text-md-start">
+            <div class="col-12 col-md-3 mb-3 mb-md-0 d-flex justify-content-center">
+        <img src="{{ url_for('static', filename='img/foto.png') }}"
+                class="img-fluid rounded-circle"
+                style="width: 130px; height: 130px; object-fit: cover;">
+        </div>
 
             
             <!-- Datos de Lautaro -->
-            <div class="col-9">
-                <h1 class="display-4 pixel-font">Lautaro Cuesta</h1>
-                <p class="lead mb-0">Analista de datos y Desarrollador web</p>
+        <div class="col-12 col-md-9">
+                <h1 class="pixel-font">Lautaro Cuesta</h1>
+                <p class="lead mb-1">Analista de datos y Desarrollador web</p>
                 <span class="badge bg-primary">Disponible para trabajar</span>
-                <p><img src="{{ url_for('static', filename='img/mapa.png') }}"alt="Gmail Icon" class="icon-hover" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 5px;">Córdoba, Argentina</p>
-            </div>
-        </div>
+        <p class="mt-2">📍 Córdoba, Argentina</p>
+    </div>
+</div>
     
-        <div class="container text-center">
+       <div class="container text-center">
     <div class="social-icons mb-4">
 
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/lautarocuesta" target="_blank" style="margin-right: 20px;">
+        <a href="https://www.linkedin.com/in/lautarocuesta" target="_blank">
             <i class="fab fa-linkedin"></i>
         </a>
 
-        <!-- GitHub -->
-        <a href="https://github.com/Lautarocuesta" target="_blank" style="margin-right: 20px;">
+        <a href="https://github.com/Lautarocuesta" target="_blank">
             <i class="fab fa-github"></i>
         </a>
 
-        <!-- CV -->
-        <a href="https://docs.google.com/document/d/1u1At7CiMilAo9aTYye0nIldCucMsWlo22jz_vV6HICM/edit?usp=sharing"
-           target="_blank"
-           class="social-equal"
-           style="margin-right: 20px; text-decoration: none;">
+        <a href="https://docs.google.com/document/d/1u1At7CiMilAo9aTYye0nIldCucMsWlo22jz_vV6HICM/edit"
+           target="_blank" class="social-equal">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/readthedocs/readthedocs-original.svg"
                  class="icon-img">
             CV
